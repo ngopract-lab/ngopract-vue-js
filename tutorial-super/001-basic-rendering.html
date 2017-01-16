@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Vue Basic Rendering 001</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <!-- Component for 001 A - Basic Rendering -->
+    <div id="app">
+      {{ message }}
+    </div>
+    <!-- End of 001 A -->
+
+
+    <!-- Component for 001 B - Dynamic Binding -->
+    <div id="app-2">
+      <span v-bind:title="message2">
+        Hover your mouse over me for a few seconds to see my dynamically bound title!
+      </span>
+    </div>
+    <!-- End of 001 B -->
+
+    <script>
+
+    /*
+    001 A - Basic Rendering
+    */
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!'
+      }
+    });
+    // First we create a new Vue component, called app.
+    // el: <- where the component should mount to
+    // data: <- data to be mounted to the component
+
+    console.log(app); // take a peek to what vue do here...
+
+    /*
+    001 B - Dynamic Binding
+    */
+    var app2 = new Vue({
+      el: '#app-2',
+      data: {
+        message2: 'You loaded this page on ' + new Date()
+      }
+    });
+    </script>
+  </body>
+</html>

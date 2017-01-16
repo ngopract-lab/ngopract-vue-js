@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Vue Basic Rendering 002</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <!-- Component for 002 A - Conditional Directive -->
+    <div id="app-3">
+      <p v-if="seen">Now you see me</p>
+    </div>
+    <!-- End of Component 002 A -->
+
+
+    <!-- Component for 002 B - Looping Directive -->
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+    <!-- End of Component 002 B -->
+
+  <script>
+  /*
+  002 A - Conditional Directive
+  */
+  var app3 = new Vue({
+    el: '#app-3',
+    data: {
+      seen: true
+    }
+  });
+
+  /*
+  002 B - Looping Directive
+  */
+    var app4 = new Vue({
+    el: '#app-4',
+    data: {
+      todos: [
+        { text: 'Learn JavaScript' },
+        { text: 'Learn Vue' },
+        { text: 'Build something awesome' }
+      ]
+    }
+  });
+  </script>
+  </body>
+</html>
