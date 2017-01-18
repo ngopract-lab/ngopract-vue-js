@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Vue Local Component 005</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+    // First, let's create a Child Component
+    var ChildComponent = {
+      template:`
+      <div>
+        <h1>Custom Component Here :)</h1>
+        <div>
+        A custom component!
+        </div>
+      </div>
+      `
+    }
+
+    var app = new Vue({
+      el: '#app',
+      template:`<my-child-component></my-child-component>`,
+      components: {
+        // <my-component> will only be available in parent's template
+        'my-child-component': ChildComponent
+      }
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Vue Basic Component 004</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+    </div>
+
+    <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        a: 1
+      },
+      template: `
+        <div>
+          <h1>Value of a is :</h1>
+          <span>{{ a }}</span>
+          <p>
+            <button v-on:click="incrementA">Increment</button>
+          </p>
+        </div>
+      `,
+      methods: {
+        incrementA: function() {
+          this.a += 1; // `this` points to the vm instance
+        }
+      },
+      created: function () { // called when the instance is created
+        console.log('created! a is: ' + this.a)
+      },
+      mounted: function () { // called when the virtual dom is mounted to the element (el)
+        console.log('dom is mounted!')
+      },
+      updated: function () { // called when the virtual dom is updated
+        console.log('a value updated. a now is: ' + this.a)
+      },
+      destroyed: function () { // called when the virtual dom is destroyed
+        console.log('dom is destroyed!')
+      }
+    })
+    // -> "a is: 1"
+    </script>
+  </body>
+</html>

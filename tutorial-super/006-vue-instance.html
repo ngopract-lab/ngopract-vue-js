@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Vue Basic Component 004</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+    /*
+    001 - Every Vue vm is bootstrapped by creating a root Vue
+    instance with the Vue constructor function.
+    */
+
+    var vm = new Vue({
+    // options for the newly created Vue
+    // Refer to https://vuejs.org/v2/api for API References!
+    });
+
+    /*
+    002 - The Vue constructor can be extended to
+    create reusable component constructors.
+    */
+    var MyExtendedComponent = Vue.extend({
+      // extension options
+    })
+    // all instances of `MyComponent` are created with
+    // the pre-defined extension options
+    var myComponentInstance = new MyExtendedComponent()
+
+    </script>
+  </body>
+</html>

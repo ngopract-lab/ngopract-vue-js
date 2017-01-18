@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Vue Basic Component 004</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <a href="https://vuejs.org/v2/guide/components.html"> More About Components </a>
+    <br/><br/>
+    <div id="app">
+      <ol>
+        <!-- Now we provide each todo-item with the todo object    -->
+        <!-- it's representing, so that its content can be dynamic -->
+        <todo-item v-for="item in items" v-bind:todo="item"></todo-item>
+      </ol>
+    </div>
+
+    <script>
+    // COMPONENT FORMAT: `Vue.component(tagName, options)`
+
+    // Define a new component called todo-item
+    Vue.component('todo-item', {
+      // The todo-item component now accepts a
+      // "prop", which is like a custom attribute.
+      // This prop is called todo.
+      props: ['todo'],
+      template: '<li>{{ todo.text }}</li>'
+    });
+
+    /*
+    INFO
+    ====
+    Note that the component above is a Global Component.
+    For Local Components, we need to Register it locally.
+
+    Local Component = child component of an outer component.
+    */
+
+    // Render the main vue component
+    var app = new Vue({
+      el: '#app',
+      data: {
+        items: [
+          { text: 'Vegetables' },
+          { text: 'Cheese' },
+          { text: 'Whatever else humans are supposed to eat' }
+        ]
+      }
+    });
+    </script>
+  </body>
+</html>
